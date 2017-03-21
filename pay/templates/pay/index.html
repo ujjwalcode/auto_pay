@@ -1,0 +1,98 @@
+{% extends 'pay/base.html' %} {% block title %}Pay Bill{% endblock %} {% block body %}
+<div id="templatemo_main" style="
+  width: 850px;
+  padding-top: -;
+  padding-bottom: 0px;">
+
+
+    <div id="content">
+
+        <!-- scroll -->
+
+
+        <div class="scroll" style="overflow: hidden;width: 1000px;height: 700px;">
+            <div class="scrollContainer" style="margin-top:0px">
+
+                <div class="panel" id="home" style="width: 1000px; height: 700px;">
+                    <div class="container">
+                        <div class="row" style="font-size:15px;padding: 5px;">
+                            <div class="col-sm-12">
+
+                            </div>
+                            <!-- panel preview -->
+                            <div class="col-sm-5">
+                                <h4>Pay Bill:</h4>
+                                <div class="panel panel-default">
+                                    <div class="panel-body form-horizontal payment-form">
+                                        <div class="form-group">
+                                            <label for="bill_type" class="col-sm-3 control-label">Select Bill</label>
+                                            <div class="col-sm-9 style=" padding: 5px; "">
+                                                <select class="form-control" id="Select Bill" name="bill_type">
+                          <option>--select--</option>
+                          <option>Electricity Bill</option>
+                          <option>Water Bill</option>
+                          <option>Telephone Bill</option>
+                          <option>Postpaid Bill</option>
+                          <<option>Broadband</option>
+                      </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="bill_no" class="col-sm-3 control-label">Enter Bill No.</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="concept" name="concept">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="card" class="col-sm-3 control-label">Payment Mode</label>
+                                            <div class="col-sm-9">
+                                                <select class="form-control" id="Select Bill" name="bill_type">
+                          <option>--select--</option>
+                          <option>Debit Card</option>
+                          <option>Credit Card</option>
+
+                      </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="card_no" class="col-sm-3 control-label">Card Number</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="description" name="description">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cvv" class="col-sm-3 control-label">CVV Code</label>
+                                            <div class="col-sm-9">
+                                                <input type="number" class="form-control" id="amount" name="amount">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="date" class="col-sm-3 control-label">Date of Expiry</label>
+                                            <div class="col-sm-9">
+                                                <input type="date" class="form-control" id="date" name="date"><br />
+                                                <label><span style="color:red">
+                                                  <form class="form-horizontal" role="form" action="{% url 'pay:gateway' %}" method="post" enctype="multipart/form-data">
+                                                      {% csrf_token %}
+                                                  <input name = "checkbox" type="checkbox" {% if data.is_yes %}checked{% endif %}> Auto-Pay next time</span></label>
+                                            </div>
+                                        </div><br>
+                                        <div class="form-group">
+
+                                            <div class="col-sm-12 text-right">
+                                                <button type="submit" class="btn btn-default preview-add-button">
+                          <span class="glyphicon glyphicon-plus"></span> Submit
+                      </button></form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- / panel preview -->
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end of home -->
+
+                {% endblock %}

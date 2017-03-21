@@ -1,0 +1,94 @@
+{% extends 'pay/base_visitor.html' %}
+{% block title %}Register{% endblock %}
+{% block register_active %}active{% endblock %}}
+
+{% block body %}
+<div class="container-fluid">
+
+    <div class="row">
+      <div class="col-lg-8 col-md-8"></div>
+        <div class="col-lg-4 col-md-4" style="margin-bottom:20px;">
+            <!--<div class="panel panel-default">-->
+              <div class="panel-heading">
+                  <div class="panel-title text-center">
+                      <h1 class="title">E-MITRA</h1>
+                      <hr />
+                  </div>
+              </div>
+                <div class="main-login main-center" style="margin-bottom:40px;">
+
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <!--{% include 'pay/form_template.html' %}-->
+                        <div class="form-group">
+                            <label for="first_name" class="control-label" >First Name<span>*</span></label>
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                              {{ form.first_name }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="first_name" class="control-label" >Last Name <span>*</span></label>
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                              {{ form.last_name }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="first_name" class="control-label" >Username <span>*</span></label>
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                              {{ form.username }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="first_name" class="control-label" >Mobile Number<span>*</span></label>
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                              {{ form.mobile_number }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="first_name" class="control-label" >Email<span>*</span></label>
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                              {{ form.email }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="first_name" class="control-label" >Password<span>*</span></label>
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                              {{ form.password }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="first_name" class="control-label" >Confirm Password<span>*</span></label>
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                              {{ form.re_password }}
+                            </div>
+                        </div>
+                        <div class="well-sm" style="text-align:left; padding:3px"><small><span style="color:red">Fields Marked With * are mendatory</span></small></div>
+                        <div class="form-group">
+
+                                <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Register</button>
+
+                        </div>
+
+                    </form>
+                    <div class="login-register">
+                        <a href="{% url 'pay:login_user' %}">Login</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+<!--</div>-->
+
+{% endblock %}
